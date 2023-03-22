@@ -58,7 +58,7 @@
                 categories c ON q.category_id = c.id
             WHERE
                 q.id = ?
-            LIMIT 0,1';
+            LIMIT 1';
 
             // Prepare statment
             $stmt = $this->conn->prepare($query);
