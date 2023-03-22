@@ -72,7 +72,9 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (!$row) {
-                return false;
+                echo json_encode(
+                    array('message' => 'author_id not found')
+                );
             }
 
             // Set properties
