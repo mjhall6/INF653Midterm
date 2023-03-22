@@ -61,6 +61,7 @@
                 echo json_encode(
                     array('message' => 'author_id not found')
                 );
+                exit();
             }
 
             // Set properties

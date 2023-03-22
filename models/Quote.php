@@ -75,6 +75,7 @@
                 echo json_encode(
                     array('message' => 'quote not found')
                 );
+                exit();
             }
 
             // Set properties

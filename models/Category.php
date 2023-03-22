@@ -61,6 +61,7 @@
                 echo json_encode(
                     array('message' => 'category_id not found')
                 );
+                exit();
             }
 
             // Set properties
