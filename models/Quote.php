@@ -22,7 +22,7 @@
         public function read() {
             // Create Query
             $query = 'SELECT 
-                    c.name as catergory,
+                    c.name as category,
                     q.id,
                     q.category_id,
                     q.author_id,
@@ -30,7 +30,7 @@
                 FROM
                     ' . $this->table . ' q
                 LEFT JOIN
-                    categories c ON q.category = c.id
+                    categories c ON q.category_id = c.id
                 ORDER BY
                     q.author_id';
             
@@ -179,4 +179,3 @@
                 return false;
             }
     }
-?>
