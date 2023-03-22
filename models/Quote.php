@@ -22,7 +22,7 @@
         public function read() {
             // Create Query
             $query = 'SELECT 
-                    c.name as category,
+                    c.category as category,
                     q.id,
                     q.category_id,
                     q.author_id,
