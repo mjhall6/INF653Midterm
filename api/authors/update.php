@@ -7,7 +7,7 @@
 
 
     include_once '../../config/Database.php';
-    include_once '../../models/Quote.php';
+    include_once '../../models/Auhtor.php';
 
     // Instantiate DB & connect
 
