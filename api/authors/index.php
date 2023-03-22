@@ -34,3 +34,6 @@ if($method === "GET"){
 } else {
     echo("Incorrect Method beimg used. It must be either GET, PUT, DELETE, or POST.");
 }
+?>
+<?php $title="Megan Hall"; ?>
+<h1><?php echo $title; ?></h1>
