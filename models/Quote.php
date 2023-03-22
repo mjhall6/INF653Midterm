@@ -71,6 +71,10 @@
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            if (!$row) {
+                return false;
+            }
+
             // Set properties
             $this->author_id = $row['author_id'];
             $this->quote = $row['quote'];

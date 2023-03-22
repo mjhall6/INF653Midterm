@@ -57,6 +57,10 @@
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            if (!$row) {
+                return false;
+            }
+
             // Set properties
             $this->id = $row['id'];
         }
