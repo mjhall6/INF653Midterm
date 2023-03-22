@@ -73,7 +73,7 @@
 
             if (!$row) {
                 echo json_encode(
-                    array('message' => 'quote not found')
+                    array('message' => 'No Quotes Found')
                 );
                 exit();
             }

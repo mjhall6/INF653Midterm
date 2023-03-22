@@ -59,7 +59,7 @@
 
             if (!$row) {
                 echo json_encode(
-                    array('message' => 'author_id not found')
+                    array('message' => 'author_id Not Found')
                 );
                 exit();
             }
