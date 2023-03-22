@@ -32,7 +32,7 @@
                 LEFT JOIN
                     categories c ON q.category_id = c.id
                 ORDER BY
-                    q.author_id';
+                    q.id';
             
             //Prepare statement
             $stmt = $this->conn->prepare($query);
