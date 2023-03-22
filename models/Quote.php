@@ -22,6 +22,7 @@
         public function read() {
             // Create Query
             $query = 'SELECT 
+                    a.author as author,
                     c.category as category,
                     q.id,
                     q.category_id,
@@ -29,8 +30,10 @@
                     q.quote
                 FROM
                     ' . $this->table . ' q
-                LEFT JOIN
+                INNER JOIN
                     categories c ON q.category_id = c.id
+                INNER JOIN
+                    authors a ON q.author_id = a.id
                 ORDER BY
                     q.id';
             
@@ -47,18 +50,21 @@
         public function read_single() {
             // Create query
             $query = 'SELECT 
-            c.category as catergory_id,
-            q.id,
-            q.category_id,
-            q.author_id,
-            q.quote
-            FROM
-                ' . $this->table . ' q
-            LEFT JOIN
-                categories c ON q.category_id = c.id
-            WHERE
-                q.id = ?
-            LIMIT 1';
+                    a.author as author,
+                    c.category as category,
+                    q.id,
+                    q.category_id,
+                    q.author_id,
+                    q.quote
+                FROM
+                    ' . $this->table . ' q
+                INNER JOIN
+                    categories c ON q.category_id = c.id
+                INNER JOIN
+                    authors a ON q.author_id = a.id
+                WHERE
+                    q.id = ?
+                LIMIT 1';
 
             // Prepare statment
             $stmt = $this->conn->prepare($query);
