@@ -47,7 +47,7 @@
         public function read_single() {
             // Create query
             $query = 'SELECT 
-            c.name as catergory,
+            c.category as catergory_id,
             q.id,
             q.category_id,
             q.author_id,
