@@ -37,3 +37,4 @@
             array('message' => 'Category Not Updated')
         );
     }
+?>

@@ -1,12 +1,13 @@
 <?php 
   class Database {
     // DB Params
+    private $conn;
     private $host;
     private $port;
     private $dbname;
     private $username;
     private $password;
-    private $conn;
+    
 
     public function __construct(){
       $this->username = getenv('USERNAME');
@@ -20,11 +21,13 @@
 
     // DB Connect
     public function connect() {
-      if($this->conn) {
+      // Instead of $this->conn = null;
+      if ($this->conn) {
+        // Connection already exists
         return $this->conn;        
       } else {
         
-        $dsn = "pgsql:host ={this->host};port={this->port};dbname={$this->dbname};";
+        $dsn = "pgsql:host={this->host};port={this->port};dbname={$this->dbname};";
       }
 
       try {
@@ -36,3 +39,4 @@
        }
    }
 }
+?>

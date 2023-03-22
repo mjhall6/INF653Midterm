@@ -28,3 +28,5 @@
 
     //Make JSON
     print_r(json_encode($category_arr));
+
+?>

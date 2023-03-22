@@ -34,3 +34,4 @@
             array('message' => 'Category Not Deleted')
         );
     }
+?>

@@ -34,3 +34,4 @@
             array('message' => 'Author Not Deleted')
         );
     }
+?>

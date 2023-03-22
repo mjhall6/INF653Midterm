@@ -34,3 +34,4 @@
             array('message' => 'Quote Not Deleted')
         );
     }
+?>
