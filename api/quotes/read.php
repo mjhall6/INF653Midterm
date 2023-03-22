@@ -32,7 +32,7 @@
             $quote_item = array(
                 'id' => $id,
                 'quote' => $quote,
-                'autho_id' => $author_id,
+                'author_id' => $author_id,
                 'category_id' => $category_id
             );
 
