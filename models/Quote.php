@@ -94,11 +94,11 @@
                 // Create Query
                 $query = 'INSERT INTO ' . 
                     $this->table . '
-                    SET
-                       author_id = :author_id,
-                       quote = :quote,
-                       category_id = :category_id,
-                       id = :id';
+                    VALUES(
+                       :author_id,
+                       :quote,
+                       :category_id,
+                       :id)';
 
                 // Prepare Statement
                 $stmt = $this->conn->prepare($query);
@@ -107,13 +107,13 @@
                 $this->author_id = htmlspecialchars(strip_tags($this->author_id));
                 $this->quote = htmlspecialchars(strip_tags($this->quote));
                 $this->category_id = htmlspecialchars(strip_tags($this->category_id));
-                $this->id = htmlspecialchars(strip_tags($this->id));
+                
 
                 // Bind data
                 $stmt->bindParam(':author_id', $this->author_id);
                 $stmt->bindParam(':quote', $this->quote);
                 $stmt->bindParam(':category_id', $this->category_id);
-                $stmt->bindParam(':id', $this->id);
+                
 
                 // Execute query
                 if($stmt->execute()) {
@@ -124,6 +124,20 @@
                 printf("Error: %s.\n, $stmt->error");
 
                 return false;
+
+                if($category->category != null) {
+                    $category_arr = array(
+                        'id' => $categories->id,
+                        'category' => $categories->category
+                    );
+
+                    echo json_encode($category_arr);
+                } else {
+                    echo json_encode( array(
+                        'message' => 'category_id Not Found'
+                        )
+                    );
+                }
             }
 
             
@@ -136,7 +150,6 @@
                        author_id = :author_id,
                        quote = :quote,
                        category_id = :category_id,
-                       id = :id
                     WHERE
                         id = :id';
 
@@ -164,6 +177,7 @@
                 printf("Error: %s.\n, $stmt->error");
 
                 return false;
+
             }
 
             // Delete Quote
