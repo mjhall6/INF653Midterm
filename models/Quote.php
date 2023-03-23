@@ -84,9 +84,9 @@
             }
 
             // Set properties
-            $this->author_id = $row['author_id'];
+            $this->author = $row['author'];
             $this->quote = $row['quote'];
-            $this->category_id = $row['category_id'];
+            $this->category = $row['category'];
         }
 
             // Create Quote
