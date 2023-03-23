@@ -103,8 +103,7 @@
                 $query = 'UPDATE ' . 
                     $this->table . '
                     SET
-                       author = :author,
-                       id = :id
+                       author = :author
                     WHERE
                         id = :id';
 

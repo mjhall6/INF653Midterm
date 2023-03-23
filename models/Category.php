@@ -73,21 +73,18 @@
                 // Create Query
                 $query = 'INSERT INTO ' . 
                     $this->table . '
-                    SET
-                       category_id = :category_id,
-                       id = :id';
+                    VALUES(
+                       :category)';
 
                 // Prepare Statement
                 $stmt = $this->conn->prepare($query);
 
                 //Clean data
                 $this->category = htmlspecialchars(strip_tags($this->category));
-                $this->id = htmlspecialchars(strip_tags($this->id));
 
                 // Bind data
                 $stmt->bindParam(':category', $this->category);
-                $stmt->bindParam(':id', $this->id);
-
+                
                 // Execute query
                 if($stmt->execute()) {
                     return true;
