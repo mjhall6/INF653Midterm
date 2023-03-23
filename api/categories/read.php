@@ -24,18 +24,22 @@
     if($num > 0) {
         // Quote array
         $category_arr = array();
-        $category_arr['data'] = array();
+        //$category_arr['data'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            extract($row);
+            //extract($row);
 
+            //$category_item = array(
+            //    'id' => $id,
+            //    'category' => $category
+            //);
             $category_item = array(
-                'id' => $id,
-                'category' => $category
+                'id' => $row['id'],
+                'category' => $row['category']
             );
 
             // Push to "data"
-            array_push($category_arr['data'], $category_item);
+            array_push($category_arr, $category_item);
         }
 
         // Turn to JSON & output
