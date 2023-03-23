@@ -20,6 +20,13 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
+    if(!isset($data->id) || !isset($data->quote) || !isset($data->author_id) || !isset($data->category_id)) {
+        echo json_encode(
+            array('message' => 'Missing Required Parameters')
+        );
+        exit();
+    }
+
     // Set ID to update
 
     $quote->id = $data->id;
@@ -32,11 +39,11 @@
     // Update quote
     if($quote->update()) {
         echo json_encode(
-            array('message' => 'Quote Updated')
+            array('id'=>$quote->id, 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, 'category_id'=>$quote->category_id)
         );
     } else {
         echo json_encode(
-            array('message' => 'Quote Not Updated')
+            array('message' => 'No Quotes Found')
         );
     }
 ?>
