@@ -49,12 +49,11 @@
         // Get Single Quote
         public function read_single() {
             // Create query
+            //removed the _id lines for testing purposes below
             $query = 'SELECT 
                     a.author as author,
                     c.category as category,
                     q.id,
-                    q.category_id,
-                    q.author_id,
                     q.quote
                 FROM
                     ' . $this->table . ' q
