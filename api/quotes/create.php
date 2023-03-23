@@ -23,12 +23,18 @@
     $quote->author_id = $data->author_id;
     $quote->quote = $data->quote;
     $quote->category_id = $data->category_id;
-    $quote->id = $data->id;
+    $quote->id = $data->getId() + 1;
+
+    //Check ID to see if ID in already in database
+    
 
     // Create quote
     if($quote->create()) {
         echo json_encode(
-            array('message' => 'Quote Created')
+            array( 'id' => $quote->id,
+                   'quote' => $quote->quote,
+                   'author_id' => $quote->author_id,
+                   'category_id' => $quote->category_id)
         );
     } else {
         echo json_encode(
