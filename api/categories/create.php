@@ -15,22 +15,28 @@
     $db = $database->connect();
 
     // Instantiate Category object
-    $category = new Category($db);
+    $author = new Category($db);
 
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    $category->category = $data->category;
-    $category->id = $data->id;
-
-    // Create category
-    if($category->create()) {
+    if(!isset($data->category)) {
         echo json_encode(
-            array('message' => 'Category Created')
+            array('message' => 'Missing Required Parameters')
+        );
+        exit();
+    }
+
+    $category->category = $data->category;
+
+    // Create Author
+    if($author->create()) {
+        echo json_encode(
+            array('id'=>$category->id, 'category'=>$author->category)
         );
     } else {
         echo json_encode(
-            array('message' => 'Category Not Created')
+            array('message' => 'No Categories Found')
         );
     }
 ?>
