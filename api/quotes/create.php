@@ -20,10 +20,16 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
+    if(!isset($data->id) || !isset($data->quote) || !isset($data->author_id) || !isset($data->category_id)) {
+        echo json_encode(
+            array('message' => 'Missing Required Parameters')
+        );
+        exit();
+    }
+
     $quote->author_id = $data->author_id;
     $quote->quote = $data->quote;
     $quote->category_id = $data->category_id;
-    $quote->id = $data->getId() + 1;
 
     //Check ID to see if ID in already in database
     
@@ -38,7 +44,7 @@
         );
     } else {
         echo json_encode(
-            array('message' => 'Quote Not Created')
+            array('message' => 'No Quotes Found')
         );
     }
 ?>
