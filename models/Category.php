@@ -73,7 +73,7 @@
                 // Create Query
                 $query = 'INSERT INTO ' . 
                     $this->table . '
-                    VALUES
+                    SET
                        category_id = :category_id,
                        id = :id';
 
@@ -105,7 +105,7 @@
                 // Create Query
                 $query = 'UPDATE ' . 
                     $this->table . '
-                    VALUES
+                    SET
                        category = :category,
                        id = :id
                     WHERE

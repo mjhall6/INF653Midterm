@@ -94,7 +94,7 @@
                 // Create Query
                 $query = 'INSERT INTO ' . 
                     $this->table . '
-                    VALUES
+                    SET
                        author_id = :author_id,
                        quote = :quote,
                        category_id = :category_id,
@@ -132,7 +132,7 @@
                 // Create Query
                 $query = 'UPDATE ' . 
                     $this->table . '
-                    VALUES
+                    SET
                        author_id = :author_id,
                        quote = :quote,
                        category_id = :category_id,

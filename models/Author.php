@@ -73,7 +73,7 @@
                 // Create Query
                 $query = 'INSERT INTO ' . 
                     $this->table . '
-                    VALUES
+                    SET
                        author_id = :author_id,
                        id = :id';
 
@@ -105,7 +105,7 @@
                 // Create Query
                 $query = 'UPDATE ' . 
                     $this->table . '
-                    VALUES
+                    SET
                        author = :author,
                        id = :id
                     WHERE
